@@ -6,14 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "regression": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed",
-    "regression-with-html-report": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed --reporter=html"
+    "regression-with-html-report": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.36.1",
     "prettier": "^2.5.0",
     "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.36.1",
+    "allure-playwright": "^2.4.0"
   }
 }

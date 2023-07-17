@@ -4,6 +4,16 @@ const config: PlaywrightTestConfig = {
     timeout: 60000,
     retries: 0,
     workers: process.env.CI ? 2 : undefined,
+    reporter: [
+        [
+            "allure-playwright",
+            {
+                detail: true,
+                outputFolder: "allure-report",
+                suiteTitle: false,
+            },
+        ],
+    ],
     use: {
         baseURL: 'https://noah.com/',
         headless: false,
@@ -13,7 +23,7 @@ const config: PlaywrightTestConfig = {
         video: 'off',
         screenshot: 'on',
         navigationTimeout: 30000,
-        testIdAttribute: 'data-qa'
+        testIdAttribute: 'data-qa',
     },
     projects: [
         {
