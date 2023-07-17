@@ -9,14 +9,16 @@ const config: PlaywrightTestConfig = {
         actionTimeout: 15000,
         ignoreHTTPSErrors: true,
         video: 'off',
-        screenshot: 'on'
+        screenshot: 'on',
+        navigationTimeout: 30000,
+        testIdAttribute: 'data-qa'
     },
     projects: [
         {
             name: 'E2E testing with chromium',
             use: {
                 browserName: 'chromium',
-                viewport:  { width: 1920, height: 1080 }
+                viewport:  { width: 1920, height: 1080 },
             }
 
         },
