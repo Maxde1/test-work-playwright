@@ -17,35 +17,15 @@ jobs:
     - run: npx playwright install
     - run: npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium'
 
-    - uses: actions/upload-artifact@master
-      with:
-        name: allure-results
-        path: allure-results
-        retention-days: 20
-
-    - name: Get Allure history
-      uses: actions/checkout@v2
+    - name: Upload test results
       if: always()
-      continue-on-error: true
+      uses: actions/upload-artifact@v3
       with:
-        ref: gh-pages
-        path: gh-pages
+        name: single-spec-report
+        path: e2e/report
 
-    - name: Test marketplace action
-      uses: simple-elf/allure-report-action@master
+    - name: Adding note
       if: always()
-      id: allure-report
-      with:
-        allure_results: allure-results
-        gh_pages: gh-pages
-        allure_report: allure-report
-        allure_history: allure-history
-        keep_reports: 20
-
-    - name: Deploy report to Github Pages
-      if: always()
-      uses: peaceiris/actions-gh-pages@v2
-      env:
-        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: allure-history
+      run: |
+        echo 'Open the index.html from the single-spec-report artifact to read the report.' >> $GITHUB_STEP_SUMMARY
+        echo 'Drop .zip trace file into the [Playwright Trace Viewer](https://trace.playwright.dev/) to debug tests.' >> $GITHUB_STEP_SUMMARY
