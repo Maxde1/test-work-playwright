@@ -6,6 +6,6 @@ export class PositionOverviewLocators {
 
     constructor(page: Page) {
         this.page = page
-        this.applyButton = page.locator('a', {hasText: 'Apply for this job'})
+        this.applyButton = page.getByTestId('show-page-apply')
     }
 }
