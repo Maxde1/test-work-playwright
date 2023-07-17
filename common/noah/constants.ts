@@ -10,3 +10,11 @@ export enum HEADER_TABS {
     SUPPORT = "Support",
     BLOG = "Blog"
 }
+
+export enum DEMOGRAPHIC_SERVEY {
+    UKRAINE = 'Ukraine'
+}
+
+export enum FILENAMES {
+    RESUME= 'resume.pdf'
+}
