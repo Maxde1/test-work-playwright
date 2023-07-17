@@ -5,7 +5,8 @@ const config: PlaywrightTestConfig = {
     retries: 0,
     workers: process.env.CI ? 2 : undefined,
     reporter: [
-        ["allure-playwright"],
+        ['line'],
+        ["allure-playwright"]
     ],
     use: {
         baseURL: 'https://noah.com/',
@@ -14,7 +15,7 @@ const config: PlaywrightTestConfig = {
         actionTimeout: 15000,
         ignoreHTTPSErrors: true,
         video: 'off',
-        screenshot: 'on',
+        screenshot: 'only-on-failure',
         navigationTimeout: 30000,
         testIdAttribute: 'data-qa',
     },
