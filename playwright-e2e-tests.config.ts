@@ -3,6 +3,7 @@ import { PlaywrightTestConfig } from '@playwright/test'
 const config: PlaywrightTestConfig = {
     timeout: 60000,
     retries: 0,
+    workers: process.env.CI ? 2 : undefined,
     use: {
         baseURL: 'https://noah.com/',
         headless: false,

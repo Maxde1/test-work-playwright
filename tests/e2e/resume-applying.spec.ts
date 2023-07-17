@@ -5,22 +5,53 @@ import { PositionApplyPage } from '../../app/noah/pages/position-apply.po'
 import { PositionOverviewPage } from '../../app/noah/pages/position-overview.po'
 import { logger } from '../../app/noah/common/logger'
 
-test.beforeEach(async ({ page }, testInfo) => {
-    logger.info('Visit welcome page')
-    await page.goto('/');
-});
+const resumeEntities = [
+    {
+        name: 'only with valid required fields',
+        resumeEntity: resumeEntries.getResumeOnlyWithRequiredValidFields()
+    },
+    {
+        name: 'only with invalid required fields',
+        resumeEntity: resumeEntries.getResumeOnlyWithRequiredInvalidFields()
+    }
+]
 
-test('Check header', async ({
-                                context,
-                                welcomePage,
-                                careersPage,
-                            }) => {
-    const positionName = 'Software Development Engineer in Test (SDET)'
-    const resumeEntity = await resumeEntries.getResumeOnlyWithRequiredFields()
-    await welcomePage.mainHeader.selectOptionFromCompanyDropDown(COMPANY_TAB_OPTIONS.CAREERS)
-    const newPage = await careersPage.openPositionByName(positionName, context)
-    const positionOverviewPage = new PositionOverviewPage(newPage)
-    await positionOverviewPage.applyButton.click()
-    const positionApplyPage = new PositionApplyPage(newPage)
-    await positionApplyPage.fillApplicationForm(resumeEntity)
+test.describe.parallel('application form test', () => {
+    test.beforeEach(async ({ page }, testInfo) => {
+        logger.info('Visit welcome page')
+        await page.goto('/');
+    });
+
+    resumeEntities.forEach(entity => {
+        test(`Check application form with ${entity.name}`, async ({
+                                    context,
+                                    welcomePage,
+                                    careersPage,
+                                }) => {
+            const positionName = 'Software Development Engineer in Test (SDET)'
+            const resumeEntity = await resumeEntries.getResumeOnlyWithRequiredValidFields()
+            await welcomePage.mainHeader.selectOptionFromCompanyDropDown(COMPANY_TAB_OPTIONS.CAREERS)
+            const newPage = await careersPage.openPositionByName(positionName, context)
+            const positionOverviewPage = new PositionOverviewPage(newPage)
+            await positionOverviewPage.applyButton.click()
+            const positionApplyPage = new PositionApplyPage(newPage)
+            await positionApplyPage.fillApplicationForm(resumeEntity)
+        })
+    })
+
+    // test('parallel 2', async ({
+    //                               context,
+    //                               welcomePage,
+    //                               careersPage,
+    //                           }) => {
+    //     const positionName = 'Software Development Engineer in Test (SDET)'
+    //     const resumeEntity = await resumeEntries.getResumeOnlyWithRequiredValidFields()
+    //     await welcomePage.mainHeader.selectOptionFromCompanyDropDown(COMPANY_TAB_OPTIONS.CAREERS)
+    //     const newPage = await careersPage.openPositionByName(positionName, context)
+    //     const positionOverviewPage = new PositionOverviewPage(newPage)
+    //     await positionOverviewPage.applyButton.click()
+    //     const positionApplyPage = new PositionApplyPage(newPage)
+    //     await positionApplyPage.fillApplicationForm(resumeEntity)
+    // })
 })
+
