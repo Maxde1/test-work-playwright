@@ -39,8 +39,8 @@ export class PositionApplyPage extends PositionApplyLocators {
         if (resume.noahSavingsUrl) {
             await this.noahSavingsUrl.fill(resume.noahSavingsUrl)
         }
-        if (resume.additionalInfo) {
-            await this.additionalInfo.fill(resume.additionalInfo)
+        if (resume.demographicSurvey) {
+            await this.demographicSurvey.selectOption(resume.demographicSurvey)
         }
         if (resume.additionalInfo) {
             await this.additionalInfo.fill(resume.additionalInfo)
