@@ -15,7 +15,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx playwright install
-    - run: npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed
+    - run: npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium'
 
     - uses: actions/upload-artifact@master
       with:

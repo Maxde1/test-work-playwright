@@ -10,7 +10,7 @@ const config: PlaywrightTestConfig = {
     ],
     use: {
         baseURL: 'https://noah.com/',
-        headless: false,
+        headless: true,
         viewport: { width: 1280, height: 720 },
         actionTimeout: 15000,
         ignoreHTTPSErrors: true,
