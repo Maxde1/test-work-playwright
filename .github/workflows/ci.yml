@@ -17,12 +17,12 @@ jobs:
     - run: npx playwright install
     - run: npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium'
 
-    - name: Upload test results
+    - uses: actions/upload-artifact@v3
       if: always()
-      uses: actions/upload-artifact@v3
       with:
         name: playwright-report
-        path: /
+        path: playwright-report/
+        retention-days: 30
 
     - name: Adding note
       if: always()
