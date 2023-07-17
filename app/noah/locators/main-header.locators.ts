@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test'
-import { HEADER_TABS } from '../constants'
+import { HEADER_TABS } from '../common/constants'
 
 export class MainHeaderLocators {
     readonly page: Page
