@@ -1,6 +1,6 @@
 import { ResumeBuilder } from './resume-builder'
-import { utils } from '../utils'
-import { FILENAMES } from '../constants'
+import { utils } from '../common/utils'
+import { FILENAMES } from '../common/constants'
 
 export class ResumeEntries {
 
@@ -12,3 +12,5 @@ export class ResumeEntries {
             .build()
     }
 }
+
+export const resumeEntries = new ResumeEntries()

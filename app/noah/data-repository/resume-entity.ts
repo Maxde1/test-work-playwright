@@ -1,4 +1,4 @@
-import { DEMOGRAPHIC_SERVEY } from '../constants'
+import { DEMOGRAPHIC_SERVEY } from '../common/constants'
 
 export class ResumeEntity {
 
