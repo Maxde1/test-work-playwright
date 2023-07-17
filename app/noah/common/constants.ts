@@ -20,6 +20,6 @@ export enum FILENAMES {
 }
 
 export enum PATHS {
-    UPLOAD_PATH = './common/noah/upload/',
+    UPLOAD_PATH = './app/noah/upload/',
     NOAH_PATH = 'https://noah.com/'
 }
