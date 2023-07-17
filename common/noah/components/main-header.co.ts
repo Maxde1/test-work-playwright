@@ -21,8 +21,4 @@ export class MainHeaderComponent extends MainHeaderLocators {
         await this.companyTab.hover()
         await (await this.getTabOptionByName(optionName)).click()
     }
-
-    async getTabOptionByName(optionName: string): Promise<Locator> {
-        return this.page.locator('a span', {hasText: optionName})
-    }
 }

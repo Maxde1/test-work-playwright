@@ -9,4 +9,8 @@ export class MainHeaderLocators {
         this.page = page
         this.companyTab = page.locator('header span', {hasText: HEADER_TABS.COMPANY})
     }
+
+    async getTabOptionByName(optionName: string): Promise<Locator> {
+        return this.page.locator('a span', {hasText: optionName})
+    }
 }
