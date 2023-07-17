@@ -1,5 +1,6 @@
 import { CareersLocators } from '../locators/careers.locators'
 import { BrowserContext, Page, PlaywrightTestArgs } from '@playwright/test'
+import { logger } from '../common/logger'
 
 export const careersPage = {
     careersPage: async (
@@ -18,6 +19,7 @@ export class CareersPage extends CareersLocators {
     }
 
     async openPositionByName(positionName: string, context: BrowserContext): Promise<Page> {
+        logger.info(`Opening position link with title ${positionName}`)
         const pagePromise = context.waitForEvent('page')
         await (await this.getPositionTitleByName(positionName)).click()
         const newPage = await pagePromise
