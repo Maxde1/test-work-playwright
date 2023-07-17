@@ -38,20 +38,5 @@ test.describe.parallel('application form test', () => {
             await positionApplyPage.fillApplicationForm(resumeEntity)
         })
     })
-
-    // test('parallel 2', async ({
-    //                               context,
-    //                               welcomePage,
-    //                               careersPage,
-    //                           }) => {
-    //     const positionName = 'Software Development Engineer in Test (SDET)'
-    //     const resumeEntity = await resumeEntries.getResumeOnlyWithRequiredValidFields()
-    //     await welcomePage.mainHeader.selectOptionFromCompanyDropDown(COMPANY_TAB_OPTIONS.CAREERS)
-    //     const newPage = await careersPage.openPositionByName(positionName, context)
-    //     const positionOverviewPage = new PositionOverviewPage(newPage)
-    //     await positionOverviewPage.applyButton.click()
-    //     const positionApplyPage = new PositionApplyPage(newPage)
-    //     await positionApplyPage.fillApplicationForm(resumeEntity)
-    // })
 })
 
