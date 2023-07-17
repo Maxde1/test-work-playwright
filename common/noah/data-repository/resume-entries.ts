@@ -3,6 +3,7 @@ import { utils } from '../utils'
 import { FILENAMES } from '../constants'
 
 export class ResumeEntries {
+
     async getResumeOnlyWithRequiredFields() {
         return new ResumeBuilder()
             .setFullName(utils.generateRandomString(12))
