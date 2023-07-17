@@ -16,5 +16,10 @@ export enum DEMOGRAPHIC_SERVEY {
 }
 
 export enum FILENAMES {
-    RESUME= 'resume.pdf'
+    RESUME= 'resume_file.docx'
+}
+
+export enum PATHS {
+    UPLOAD_PATH = './common/noah/upload/',
+    NOAH_PATH = 'https://noah.com/'
 }
