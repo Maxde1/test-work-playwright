@@ -5,14 +5,7 @@ const config: PlaywrightTestConfig = {
     retries: 0,
     workers: process.env.CI ? 2 : undefined,
     reporter: [
-        [
-            "allure-playwright",
-            {
-                detail: true,
-                outputFolder: "allure-report",
-                suiteTitle: false,
-            },
-        ],
+        ["allure-playwright"],
     ],
     use: {
         baseURL: 'https://noah.com/',
