@@ -1,0 +1,16 @@
+# user configurations
+.env
+.env.webpacker
+
+# editor configs and swap files
+.idea
+.vscode
+*.swo
+*.swp
+puma.state
+
+# node_modules and playwright-report
+/node_modules
+node_modules/
+/playwright-report
+/test-results
