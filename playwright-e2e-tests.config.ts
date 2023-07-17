@@ -2,8 +2,9 @@ import { PlaywrightTestConfig } from '@playwright/test'
 
 const config: PlaywrightTestConfig = {
     timeout: 60000,
-    retries: 1,
+    retries: 0,
     use: {
+        baseURL: 'https://noah.com/',
         headless: false,
         viewport: { width: 1280, height: 720 },
         actionTimeout: 15000,
