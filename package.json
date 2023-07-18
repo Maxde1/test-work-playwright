@@ -4,9 +4,8 @@
   "description": "Test work for a SDET position",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "regression": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed",
-    "regression-with-html-report": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed"
+    "test:regression": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed",
+    "test:regression-with-reports": "npx playwright test --config=playwright-e2e-tests.config.ts --project='E2E testing with chromium' --headed"
   },
   "keywords": [],
   "author": "",
